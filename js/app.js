@@ -1,8 +1,8 @@
 /*
  * Create a list that holds all of your cards
  */
-let cardList = 'fa-diamond', 'fa-diamond', 'fa-paper-plane-o', 'fa-paper-plane-o', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube',
- 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-bomb'. 'fa-bomb';
+let cardList = ['fa-diamond', 'fa-diamond', 'fa-paper-plane-o', 'fa-paper-plane-o', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube',
+ 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-bomb'. 'fa-bomb'];
 
 /*
  * Display the cards on the page
@@ -11,7 +11,7 @@ let cardList = 'fa-diamond', 'fa-diamond', 'fa-paper-plane-o', 'fa-paper-plane-o
  *   - add each card's HTML to the page
  */
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+ // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -26,6 +26,12 @@ function shuffle(array) {
     return array;
 }
 
+function createCardHtml(){
+let cardFunction = shuffle(cardList);
+cardFunction.forEach(function(card) {
+    $(".deck").append('<li><i class="card fa ' + card + '"></i></li>');
+  })
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -37,3 +43,6 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+shuffle(array);
+createCardHtml;
