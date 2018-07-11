@@ -1,5 +1,5 @@
 /*
- * Create a list that holds all of your cards
+ * Create a list that holds all of your cards //CHECK
  */
  /*
 let cardList = ['fa fa-diamond', ' fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-bolt', 'fa fa-cube',
@@ -11,18 +11,44 @@ let cardList = ['fa fa-diamond', ' fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+let cardToggler = [];
+
  const deck = document.querySelector('.deck');
 
  deck.addEventListener('click', evt => {
  	const cardClicked = evt.target;
- 	if (cardClicked.classList.contains('card')){
- 	/*console.log('yes');	
- 	}						//just checking if the code works
+ 	if (cardClicked.classList.contains('card') && cardToggler.length < 2) {
+ 		cardClickToggle(cardClicked);
+ 		cardClickToggler(cardClicked);
+ 	/*if (cardToggler.length === 2) {
+ 		console.log('yess');
+
+ 	} */
+ }
+ });
+ 	/*console.log('yes');						//just checking if the code works
+ 	}						
  	else{
  		console.log('no');
  	} */
- }
- 	});
+function cardClickToggle(cardClicked) {
+ 	cardClicked.classList.toggle('open');
+ 	cardClicked.classList.toggle('show');
+ };
+
+function cardClickToggler(cardClicked) {
+	cardToggler.push(cardClicked);
+	console.log(cardToggler);
+}
+
+function checkPairs() {
+	if (cardToggler[0].firstElementChild.className === cardToggler[1].firstElementChild.className) {
+	console.log('yup');
+}
+		else {
+			console.log('nope');
+	}
+}
 
  // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -38,6 +64,10 @@ function shuffle(array) {
 
     return array;
 }
+
+
+
+
 /*
 function createCardHtml(){
 let cardFunction = shuffle(cardList);
@@ -49,7 +79,7 @@ cardFunction.forEach(function(card) {
 
 /*
  * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
+ *  - display the card's symbol (put this functionality in another function that you call from this one) //CHECK
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
