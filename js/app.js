@@ -17,12 +17,12 @@ let cardToggler = [];
 
  deck.addEventListener('click', evt => {
  	const cardClicked = evt.target;
- 	if (cardClicked.classList.contains('card') && cardToggler.length < 2) {
+ 	if (cardClicked.classList.contains('card') && cardToggler.length < 2 && !cardToggler.includes(cardClicked)) {
  		cardClickToggle(cardClicked);
  		cardClickToggler(cardClicked);
  	if (cardToggler.length === 2) {
  		//console.log('yess');
- 		checkPairs();
+ 		checkPairs(cardClicked);
  	} 
  }
  });
