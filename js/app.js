@@ -20,10 +20,10 @@ let cardToggler = [];
  	if (cardClicked.classList.contains('card') && cardToggler.length < 2) {
  		cardClickToggle(cardClicked);
  		cardClickToggler(cardClicked);
- 	/*if (cardToggler.length === 2) {
- 		console.log('yess');
-
- 	} */
+ 	if (cardToggler.length === 2) {
+ 		//console.log('yess');
+ 		checkPairs();
+ 	} 
  }
  });
  	/*console.log('yes');						//just checking if the code works
@@ -31,24 +31,7 @@ let cardToggler = [];
  	else{
  		console.log('no');
  	} */
-function cardClickToggle(cardClicked) {
- 	cardClicked.classList.toggle('open');
- 	cardClicked.classList.toggle('show');
- };
 
-function cardClickToggler(cardClicked) {
-	cardToggler.push(cardClicked);
-	console.log(cardToggler);
-}
-
-function checkPairs() {
-	if (cardToggler[0].firstElementChild.className === cardToggler[1].firstElementChild.className) {
-	console.log('yup');
-}
-		else {
-			console.log('nope');
-	}
-}
 
  // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -65,7 +48,32 @@ function shuffle(array) {
     return array;
 }
 
+function cardClickToggle(cardClicked) {
+ 	cardClicked.classList.toggle('open');
+ 	cardClicked.classList.toggle('show');
+ }
 
+function cardClickToggler(cardClicked) {
+	cardToggler.push(cardClicked);
+	console.log(cardToggler);
+}
+
+function checkPairs() {
+	if (cardToggler[0].firstElementChild.className === cardToggler[1].firstElementChild.className) {
+	cardToggler[0].classList.toggle('Score!');
+	cardToggler[1].classList.toggle('Score!');
+	cardToggler = [];
+}
+		else {
+			setTimeout(() => {					//https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
+			console.log('nope');
+			cardClickToggle(cardToggler[0]);
+			cardClickToggle(cardToggler[1]);
+			cardToggler = [];
+	}
+			, 1500);
+	}
+}
 
 
 /*
