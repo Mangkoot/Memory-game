@@ -17,7 +17,7 @@ let cardToggler = [];
 
  deck.addEventListener('click', evt => {
  	const cardClicked = evt.target;
- 	if (cardClicked.classList.contains('card') && cardToggler.length < 2 && !cardToggler.includes(cardClicked)) {
+ 	if (cardClicked.classList.contains('card') && !cardClicked.classList.contains('match') && cardToggler.length < 2 && !cardToggler.includes(cardClicked)) {
  		cardClickToggle(cardClicked);
  		cardClickToggler(cardClicked);
  	if (cardToggler.length === 2) {
@@ -60,8 +60,8 @@ function cardClickToggler(cardClicked) {
 
 function checkPairs() {
 	if (cardToggler[0].firstElementChild.className === cardToggler[1].firstElementChild.className) {
-	cardToggler[0].classList.toggle('Score!');
-	cardToggler[1].classList.toggle('Score!');
+	cardToggler[0].classList.toggle('match');
+	cardToggler[1].classList.toggle('match');
 	cardToggler = [];
 }
 		else {
