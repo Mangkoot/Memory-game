@@ -11,11 +11,32 @@ let cardList = ['fa fa-diamond', ' fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-let cardToggler = [];
-
  const deck = document.querySelector('.deck');
 
- deck.addEventListener('click', evt => {
+/*Shuffle function*/
+function shuffler(){
+	const shuffledCards = Array.from(document.querySelectorAll('.deck li')); //ARRAY.FROM: https://stackoverflow.com/questions/3199588/fastest-way-to-convert-javascript-nodelist-to-array - The Node list is NOT an array, and must be made into one. 
+	//console.log(shuffledCards);
+	let cardMixer = shuffle(shuffledCards);
+	//console.log(cardMixer);
+	for (card of cardMixer) {
+		deck.appendChild(card);
+	}
+}
+shuffler();
+
+ 
+
+
+
+
+let cardToggler = [];
+let moves = 0;
+
+
+
+
+  deck.addEventListener('click', evt => {
  	const cardClicked = evt.target;
  	if (cardClicked.classList.contains('card') && !cardClicked.classList.contains('match') && cardToggler.length < 2 && !cardToggler.includes(cardClicked)) {
  		cardClickToggle(cardClicked);
@@ -23,6 +44,7 @@ let cardToggler = [];
  	if (cardToggler.length === 2) {
  		//console.log('yess');
  		checkPairs(cardClicked);
+ 		addMoves;
  	} 
  }
  });
@@ -60,6 +82,7 @@ function cardClickToggler(cardClicked) {
 
 function checkPairs() {
 	if (cardToggler[0].firstElementChild.className === cardToggler[1].firstElementChild.className) {
+	console.log('You got it!');
 	cardToggler[0].classList.toggle('match');
 	cardToggler[1].classList.toggle('match');
 	cardToggler = [];
@@ -75,6 +98,11 @@ function checkPairs() {
 	}
 }
 
+function addMoves() {
+	moves = moves + 1;
+	const amountOfMoves = document.querySelector('.moves');
+	amountOfMoves.innerHtml = moves;
+}
 
 /*
 function createCardHtml(){
