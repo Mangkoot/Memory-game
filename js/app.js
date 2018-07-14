@@ -1,3 +1,6 @@
+let cardToggler = [];
+let moves = 0;
+
 /*
  * Create a list that holds all of your cards //CHECK
  */
@@ -30,8 +33,7 @@ shuffler();
 
 
 
-let cardToggler = [];
-let moves = 0;
+
 
 
 
@@ -44,7 +46,7 @@ let moves = 0;
  	if (cardToggler.length === 2) {
  		//console.log('yess');
  		checkPairs(cardClicked);
- 		addMoves;
+ 		addMoves();
  	} 
  }
  });
@@ -101,7 +103,7 @@ function checkPairs() {
 function addMoves() {
 	moves = moves + 1;
 	const amountOfMoves = document.querySelector('.moves');
-	amountOfMoves.innerHtml = moves;
+	amountOfMoves.innerHTML = moves;
 }
 
 /*
