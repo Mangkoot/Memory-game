@@ -1,6 +1,7 @@
 let cardToggler = [];
 let moves = 0;
 
+
 /*
  * Create a list that holds all of your cards //CHECK
  */
@@ -15,6 +16,9 @@ let cardList = ['fa fa-diamond', ' fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa
  *   - add each card's HTML to the page
  */
  const deck = document.querySelector('.deck');
+ const starOne = document.querySelector('.checked1');
+ const starTwo = document.querySelector('.checked2');
+ const starThree = document.querySelector('.checked3');
 
 /*Shuffle function*/
 function shuffler(){
@@ -47,6 +51,7 @@ shuffler();
  		//console.log('yess');
  		checkPairs(cardClicked);
  		addMoves();
+ 		starsCount();
  	} 
  }
  });
@@ -104,6 +109,25 @@ function addMoves() {
 	moves = moves + 1;
 	const amountOfMoves = document.querySelector('.moves');
 	amountOfMoves.innerHTML = moves;
+}
+
+
+function starsCount() {
+	if (moves <= 12) {
+		console.log('3 stars');
+	} 
+	else if ((moves > 12) && (moves <=18)) {
+		starThree.style.color='black';
+		console.log('2 stars');
+	}
+	else if ((moves > 18) && (moves <=24)){
+		(starThree.style.color='black') && (starTwo.style.color='black'); 
+		console.log('1 star');
+	}
+	else {
+		(starThree.style.color='black') && (starTwo.style.color='black') && (starOne.style.color='black');
+		console.log('0 stars');
+	}
 }
 
 /*
