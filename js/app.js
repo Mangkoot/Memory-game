@@ -1,5 +1,6 @@
 let cardToggler = [];
 let moves = 0;
+let timerOff = true;
 
 
 /*
@@ -19,6 +20,7 @@ let cardList = ['fa fa-diamond', ' fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa
  const starOne = document.querySelector('.checked1');
  const starTwo = document.querySelector('.checked2');
  const starThree = document.querySelector('.checked3');
+ const restarter = document.querySelector('.restart');
 
 /*Shuffle function*/
 function shuffler(){
@@ -33,14 +35,6 @@ function shuffler(){
 shuffler();
 
  
-
-
-
-
-
-
-
-
 
   deck.addEventListener('click', evt => {
  	const cardClicked = evt.target;
@@ -129,6 +123,19 @@ function starsCount() {
 		console.log('0 stars');
 	}
 }
+
+	restarter.addEventListener('click', function(){
+		window.location.href = window.location.href;
+	});
+
+function startTimer() {
+	time = 0;
+	let clockInterval = setInterval(() => {
+		time++;
+		console.log(time);
+	}	, 1000);
+}
+startTimer();
 
 /*
 function createCardHtml(){
