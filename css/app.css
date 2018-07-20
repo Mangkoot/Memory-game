@@ -101,43 +101,6 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
-    /*Star animation borrowed from https://gist.github.com/gubi/8483199 */
-   position: relative;
-    -moz-animation: bounce 1s infinite linear;
-    -o-animation: bounce 1s infinite linear;
-    -webkit-animation: bounce 1s infinite linear;
-    animation: bounce 1s infinite linear;
-}
-
-@-webkit-keyframes bounce {
-    0% { top: 0; }
-    50% { top: -0.2em; }
-    70% { top: -0.3em; }
-    100% { top: 0; }
-}
-@-moz-keyframes bounce {
-    0% { top: 0; }
-    50% { top: -0.2em; }
-    70% { top: -0.3em; }
-    100% { top: 0; }
-}
-@-o-keyframes bounce {
-    0% { top: 0; }
-    50% { top: -0.2em; }
-    70% { top: -0.3em; }
-    100% { top: 0; }
-}
-@-ms-keyframes bounce {
-    0% { top: 0; }
-    50% { top: -0.2em; }
-    70% { top: -0.3em; }
-    100% { top: 0; }
-}
-@keyframes bounce {
-    0% { top: 0; }
-    50% { top: -0.2em; }
-    70% { top: -0.3em; }
-    100% { top: 0; }
 }
 
 .score-panel .restart {
