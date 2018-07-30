@@ -130,6 +130,44 @@ function starsCount() {
 	}
 }
 
+//Timer function
+    let sec = 00, min = 00;
+    let timer = document.querySelector('.clock');
+    let interval;
+    	function startTimer(){ //https://stackoverflow.com/questions/31559469/how-to-create-a-simple-javascript-timer
+         interval = setInterval(function(){
+        timer.innerHTML = min + ':' + sec;
+        sec++;
+            if(sec == 60){
+            min++;
+            sec= 00;
+        }
+
+     /*   if (checkPairs.length == 16) {
+        	clearInterval(timer);
+
+        } */
+    }, 1000);
+}
+
+//Start timer on first click (https://stackoverflow.com/questions/28610365/how-can-i-add-an-event-for-a-one-time-click-to-a-function)
+document.addEventListener("click", function() {
+
+startTimer();
+}, {once : true});
+
+
+let matchedCard = document.querySelectorAll('.match');
+
+function youWon(){
+    if (matchedCard.length == 2){
+        clearInterval(interval);
+    }
+} 
+
+
+   //     finalTime = timer.innerHTML;
+
 /*
 function createCardHtml(){
 let cardFunction = shuffle(cardList);
