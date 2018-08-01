@@ -1,5 +1,6 @@
 let cardToggler = [];
 let moves = 0;
+let counting = 0;
 
 
 /*
@@ -36,12 +37,6 @@ shuffler();
 
 
 
-
-
-
-
-
-
   deck.addEventListener('click', evt => {
  	const cardClicked = evt.target;
  	if (cardClicked.classList.contains('card') && !cardClicked.classList.contains('match') && cardToggler.length < 2 && !cardToggler.includes(cardClicked)) {
@@ -52,6 +47,7 @@ shuffler();
  		checkPairs(cardClicked);
  		addMoves();
  		starsCount();
+ 		
  	} 
  }
  });
@@ -93,6 +89,7 @@ function checkPairs() {
 	cardToggler[0].classList.toggle('match');
 	cardToggler[1].classList.toggle('match');
 	cardToggler = [];
+	counting ++;
 }
 		else {
 			setTimeout(() => {					//https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
@@ -101,7 +98,7 @@ function checkPairs() {
 			cardClickToggle(cardToggler[1]);
 			cardToggler = [];
 	}
-			, 1500);
+			, 1200);
 	}
 }
 
@@ -130,10 +127,14 @@ function starsCount() {
 	}
 }
 
+
+
 //Timer function
     let sec = 00, min = 00;
     let timer = document.querySelector('.clock');
     let interval;
+    let matchedCard = document.querySelector('.match');
+
     	function startTimer(){ //https://stackoverflow.com/questions/31559469/how-to-create-a-simple-javascript-timer
          interval = setInterval(function(){
         timer.innerHTML = min + ':' + sec;
@@ -142,11 +143,10 @@ function starsCount() {
             min++;
             sec= 00;
         }
+        if (counting === 8){
+        youWon();
+    }
 
-     /*   if (checkPairs.length == 16) {
-        	clearInterval(timer);
-
-        } */
     }, 1000);
 }
 
@@ -157,13 +157,11 @@ startTimer();
 }, {once : true});
 
 
-let matchedCard = document.querySelectorAll('.match');
 
 function youWon(){
-    if (matchedCard.length == 2){
         clearInterval(interval);
     }
-} 
+
 
 
    //     finalTime = timer.innerHTML;
