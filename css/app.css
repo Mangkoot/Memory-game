@@ -111,3 +111,71 @@ h1 {
 .checked1, .checked2, .checked3 {
 color: orange;
 }
+
+.modal_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+}
+.modal_inner {
+    position: relative;
+    width: 450px;
+   /* height: 450px; */
+    top: 50%;
+    left: 50%;
+    background: white;
+    transform: translate(-50%, -70%);
+
+}
+.modal_header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    align-items: center;
+    padding: 0 1.5em;
+}
+
+.modal_close {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.modal_results {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    align-items: center;
+    padding: 0 1.5em;
+    font-size: 1.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.modal__stars_count {
+
+}
+
+.modal_amount_of_moves {
+
+}
+
+.modal_time_spent {
+
+}
+
+.modal_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+.modal_button_replay {
+    padding: 1.5em;
+    font-size: inherit;
+    margin: 1em;
+}
