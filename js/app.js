@@ -1,7 +1,13 @@
 let cardToggler = [];
-let moves = 0;
+let moves = 4;
 let counting = 0;
 
+
+//*************************
+
+
+
+//*************************
 
 /*
  * Create a list that holds all of your cards //CHECK
@@ -34,9 +40,6 @@ function shuffler(){
 shuffler();
 
  
-
-
-
   deck.addEventListener('click', evt => {
  	const cardClicked = evt.target;
  	if (cardClicked.classList.contains('card') && !cardClicked.classList.contains('match') && cardToggler.length < 2 && !cardToggler.includes(cardClicked)) {
@@ -152,19 +155,67 @@ function starsCount() {
 
 //Start timer on first click (https://stackoverflow.com/questions/28610365/how-can-i-add-an-event-for-a-one-time-click-to-a-function)
 document.addEventListener("click", function() {
-
 startTimer();
 }, {once : true});
 
 
-
 function youWon(){
-        clearInterval(interval);
-    }
+        clearInterval(interval); 
+        modalResults()
+        modalToggle()
+}
+//Toggling the modal on and off
+function modalToggle() {
+	const modal = document.querySelector('.modal_background');
+	modal.classList.toggle('hidden');
+}
+//let allStars = document.querySelector('.starOne, .starTwo, .starThree');
+//let string = document.querySelector('.modal_stars_count').innerHTML;
+
+
+function modalResults() {
+	        const clocky = document.querySelector('.clock');
+		const clockies = clocky.cloneNode(true);
+		document.querySelector('.modal_time_spent').appendChild(clockies);
+
+		const amountOfMoves = document.querySelector('.moves');
+		const flytte = amountOfMoves.cloneNode(true);
+		document.querySelector('.modal_amount_of_moves').appendChild(flytte);
+
+		const starOne = document.querySelector('.checked1');
+	 	const starTwo = document.querySelector('.checked2');
+	 	const starThree = document.querySelector('.checked3');
+		let str = starOne.cloneNode(true);
+		let str1 = starTwo.cloneNode(true);
+		let str2 = starThree.cloneNode(true);
 
 
 
-   //     finalTime = timer.innerHTML;
+document.querySelector('.modal_stars_count').appendChild(str);
+document.querySelector('.modal_stars_count').appendChild(str1);
+document.querySelector('.modal_stars_count').appendChild(str2);
+	
+
+//const modalStars = document.querySelector('.checked1, .checked2, .checked3').innerHTML;
+//const modalStarsCount = document.querySelector('.modal_stars_count').innerHTML;
+//modalStarsCount = modalStarsCount + modalStars;
+ //const finalTime = timer.innerHTML;
+//string = string + allStars;
+//let starring = document.querySelector('.modal_time_spent').innerText;
+//let starry = document.querySelectorAll('.stars li');
+//document.querySelector('.modal_time_spent').appendChild('starry');
+//starring.appendNode(starry);
+
+
+//let stjerna = document.querySelectorAll('.stars li');
+//const stjernis = stjerna.cloneNode(false);
+//console.log(stjerna);
+}
+//modalResults()
+
+
+//modalResults()
+
 
 /*
 function createCardHtml(){

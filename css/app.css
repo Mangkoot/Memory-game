@@ -179,3 +179,11 @@ color: orange;
     font-size: inherit;
     margin: 1em;
 }
+
+.hidden {
+    display: none;
+}
+
+.clock {
+    
+}
