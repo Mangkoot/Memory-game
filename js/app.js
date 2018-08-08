@@ -1,5 +1,5 @@
 let cardToggler = [];
-let moves = 4;
+let moves = 0;
 let counting = 0;
 
 
@@ -154,7 +154,8 @@ function starsCount() {
 }
 
 //Start timer on first click (https://stackoverflow.com/questions/28610365/how-can-i-add-an-event-for-a-one-time-click-to-a-function)
-document.addEventListener("click", function() {
+let start = document.querySelector('.card');
+start.addEventListener("click", function() {
 startTimer();
 }, {once : true});
 
@@ -195,36 +196,8 @@ document.querySelector('.modal_stars_count').appendChild(str);
 document.querySelector('.modal_stars_count').appendChild(str1);
 document.querySelector('.modal_stars_count').appendChild(str2);
 	
-
-//const modalStars = document.querySelector('.checked1, .checked2, .checked3').innerHTML;
-//const modalStarsCount = document.querySelector('.modal_stars_count').innerHTML;
-//modalStarsCount = modalStarsCount + modalStars;
- //const finalTime = timer.innerHTML;
-//string = string + allStars;
-//let starring = document.querySelector('.modal_time_spent').innerText;
-//let starry = document.querySelectorAll('.stars li');
-//document.querySelector('.modal_time_spent').appendChild('starry');
-//starring.appendNode(starry);
-
-
-//let stjerna = document.querySelectorAll('.stars li');
-//const stjernis = stjerna.cloneNode(false);
-//console.log(stjerna);
 }
-//modalResults()
 
-
-//modalResults()
-
-
-/*
-function createCardHtml(){
-let cardFunction = shuffle(cardList);
-cardFunction.forEach(function(card) {
-    $(".deck").append('<li><i class="card fa ' + card + '"></i></li>');
-  })
-}
-*/
 
 /*
  * set up the event listener for a card. If a card is clicked:
