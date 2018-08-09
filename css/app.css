@@ -89,6 +89,8 @@ h1 {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .score-panel .stars {
@@ -124,7 +126,7 @@ color: orange;
     position: relative;
     width: 450px;
    /* height: 450px; */
-    top: 50%;
+    top: 52%;
     left: 50%;
     background: white;
     transform: translate(-50%, -70%);
@@ -187,4 +189,19 @@ color: orange;
 
 .clock {
     
+}
+
+@media screen and (max-width: 680px) {
+    .modal_inner {
+        top: 400px;
+        width: 300px;
+    }
+    .deck .card{
+        width: 75px;
+        height: 75px
+    }
+    .deck {
+        width: 400px;
+    min-height: 420px;
+    }
 }
