@@ -202,6 +202,6 @@ color: orange;
     }
     .deck {
         width: 400px;
-    min-height: 420px;
+        min-height: 420px;
     }
 }

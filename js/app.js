@@ -1,15 +1,10 @@
 let cardToggler = [];
 let moves = 0;
 let counting = 0;
-
-
 const deck = document.querySelector('.deck');
 const starOne = document.querySelector('.checked1');
 const starTwo = document.querySelector('.checked2');
 const starThree = document.querySelector('.checked3');
-
-
-
 
 //Show cards
 function shuffler(){
@@ -21,7 +16,6 @@ function shuffler(){
 }
 shuffler();
 
- 
 deck.addEventListener('click', evt => {
  	const cardClicked = evt.target;
 	 	if (cardClicked.classList.contains('card') && !cardClicked.classList.contains('match') && cardToggler.length < 2 && !cardToggler.includes(cardClicked)) {
@@ -107,8 +101,6 @@ function starsCount() {
 	}
 }
 
-
-
 //Timer function
 let sec = 00, min = 00;
 let timer = document.querySelector('.clock');
@@ -140,6 +132,7 @@ function youWon(){
     modalResults()
     modalToggle()
 }
+
 //Toggling the modal on and off
 function modalToggle() {
 	const modal = document.querySelector('.modal_background');
